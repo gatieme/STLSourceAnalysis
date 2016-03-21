@@ -2,7 +2,7 @@ ROOT=..
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-target=3autoptr 3find 3mylist_iter_test test_auto_ptr
+target=3autoptr 3find test_auto_ptr 3test_typeid #3mylist_iter_test
 
 
 
@@ -25,6 +25,9 @@ test_auto_ptr : test_auto_ptr.o
 	$(CXX) $^ -o $@ 
 	@echo "complie 自己实现的迭代器..."
 
+3test_typeid:3test_typeid.o
+	$(CXX) $^ -o $@ 
+	@echo "complie 测试typeid关键字..."
 
 
 
@@ -34,3 +37,4 @@ test_auto_ptr : test_auto_ptr.o
       
 clean :
 	rm $(target)
+	rm *.o
