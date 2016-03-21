@@ -1,8 +1,14 @@
+#ifndef  __MYLIST_ITER_H__
+#define  __MYLIST_ITER_H__
+
 #include <iostream>
 #include <vector>
 #include <deque>
 #include <list>
 #include <algorithm>
+
+#include "3mylist.h"
+
 
 template <typename Item>    // item可以是单向链表及诶但或者双向列表节点
 class ListIter
@@ -29,16 +35,48 @@ public :
         return *m_ptr;
     }
 
-    Item* oprrator->( ) const
+    Item* operator->( ) const
     {
         return m_ptr;
     }
 
+    ///
+    ///  以下两个operator++遵循标准做法,
+    ///
+
+    //(1) pre-increment operator...
+    //  it meens ++i == iter.operator++( )
+    Item& operator++( )
+    {
+        m_ptr = m_ptr->m_next;
+
+        return (*this);
+    }
+
+    //(2) post-increment operator...
+    //  it meens i++ == iter.operator++(int)
+    Item& operator++(int)
+    {
+        Item temp = *this;
+        ++*this;                //  调用前置++运算符
+
+        return temp;
+    }
+
+    bool operator==(const Item &i) const
+    {
+        return m_ptr == i.m_ptr;
+    }
+
+    bool operator!=(const Item &i) const
+    {
+        return m_ptr != i.m_ptr;
+    }
 
 protected :
-    item *m_ptr;                //  保持与容器之间的联系
+    Item *m_ptr;                //  保持与容器之间的联系
 };
 
 
 
-
+#endif  // #define  __MYLIST_ITER_H__

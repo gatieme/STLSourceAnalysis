@@ -1,4 +1,8 @@
+#ifndef __MYLIST_H__
+#define __MYLIST_H__
+
 #include <iostream>
+#include <ostream>
 #include <vector>
 #include <deque>
 #include <list>
@@ -26,14 +30,18 @@ protected:
 using namespace std;
 
 template <typename T>
-class list
+class List
 {
 public :
-    void insert_front(T value);
+    void insert_front(T value)
+    {
+    }
 
-    void insert_end(T value);
+    void insert_end(T value)
+    {
+    }
 
-    void display(std::ostream &os std:;cout) const;
+    void display(std::ostream &os = std::cout) const;
 
 protected :
 
@@ -44,4 +52,4 @@ protected :
 
 
 
-
+#endif  // __MYLIST_H__
