@@ -4,26 +4,67 @@
 ///  STL源码剖析 PDF-119/534
 
 #include <iostream>
+#include <typeinfo>
 
-template <typename T>
-class C             //  这个泛化版本允许接受T为任意类型
+
+#include <iostream>
+template <class T>
+struct MyIter
 {
-    // NOP...
+    MyIter(T *p = NULL)
+    :m_ptr(p)
+    {
+        /// NOP...
+    }
+
+    T& operator*( ) const
+    {
+        return *m_ptr;
+    }
+
+
+
+    typedef T value_type;       //  内嵌型别声明{nested type}
+    T   *m_ptr;
 };
 
 
-template <typename T>
-class C<T*>             //  这个泛化版本j仅适用于"T为原生指针的情况"
-{
-    //  T为原生指针便是T为任何型别的一个更进一步的条件限制
-    // NOP...
-};
+///// 泛化的C接收任意类型
+//template <typename T>
+//class C             //  这个泛化版本允许接受T为任意类型
+//{
+//    // NOP...
+//};
+//
+//
+///// 特化的类C接收原生的指针作为对象
+//template <typename T>
+//class C<T*>             //  这个泛化版本适用于"T为原生指针的情况"
+//{
+//    //  T为原生指针便是T为任何型别的一个更进一步的条件限制
+//    // NOP...
+//};
 
 
+//  泛化的iterator_traits对象
 template <typename Iter>
 struct iterator_traits
 {
-    typedef typename I::value_type value_type；
+    typedef typename Iter::value_type value_type;
+};
+
+// 特化的iterator_traits接收<T*>参数, 萃取出一个T类型
+template<class T>
+struct iterator_traits<T *>
+{
+    typedef T value_type;
+};
+
+// 特化的iterator_traits接收<const T*>参数, 萃取出一个T型
+template<class T>
+struct iterator_traits<const T *>
+{
+    typedef T value_type;
 };
 
 
@@ -37,16 +78,18 @@ func(Iter iter)
 }
 
 
-template<class Iter>
-struct iterator_traits<Iter*>
-{
-    typedef T value_type;
-};
-
 
 int main(void)
 {
+
     MyIter<int> ite(new int(8));
     std::cout <<func(ite) <<std::endl;
+
+
+    std::cout <<typeid(iterator_traits< MyIter<int> >::value_type).name();
+    std::cout <<typeid(iterator_traits<int *>::value_type).name();
+    std::cout <<typeid(iterator_traits<const int *>::value_type).name();
+
+
     return 0;
 }
