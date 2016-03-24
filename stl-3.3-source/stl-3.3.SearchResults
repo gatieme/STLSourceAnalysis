@@ -1,72 +1,19 @@
----- iterator_category Matches (73 in 13 files) ----
-Concept_checks.h:struct __iterator_category_type_definition_requirement_violation {
-Concept_checks.h:  typedef typename __STD::iterator_traits<_Iter>::iterator_category 
-Concept_checks.h:          iterator_category;
-Concept_checks.h:  __iterator_category_type_definition_requirement_violation<_InputIterator>();
-Concept_checks.h:  __iterator_category_type_definition_requirement_violation<_OutputIterator>();
-Iterator.h:using __STD::iterator_category;
-Stl_algobase.h:    typedef typename iterator_traits<_InputIter>::iterator_category _Category;
-Stl_algobase.h:  typedef typename iterator_traits<_BidirectionalIter1>::iterator_category 
-Stl_deque.h:  typedef random_access_iterator_tag iterator_category;
-Stl_deque.h:iterator_category(const _Deque_iterator<_Tp,_Ref,_Ptr>&)
-Stl_hashtable.h:  typedef forward_iterator_tag iterator_category;
-Stl_hashtable.h:  typedef forward_iterator_tag iterator_category;
-Stl_hashtable.h:iterator_category(const _Hashtable_iterator<_Val,_Key,_HF,_ExK,_EqK,_All>&)
-Stl_hashtable.h:iterator_category(const _Hashtable_const_iterator<_Val,_Key,_HF,
-Stl_hash_map.h:  typedef output_iterator_tag iterator_category;
-Stl_hash_map.h:  typedef output_iterator_tag iterator_category;
-Stl_hash_set.h:  typedef output_iterator_tag iterator_category;
-Stl_hash_set.h:  typedef output_iterator_tag iterator_category;
-Stl_iterator.h:  typedef output_iterator_tag iterator_category;
-Stl_iterator.h:iterator_category(const back_insert_iterator<_Container>&)
-Stl_iterator.h:  typedef output_iterator_tag iterator_category;
-Stl_iterator.h:iterator_category(const front_insert_iterator<_Container>&)
-Stl_iterator.h:  typedef output_iterator_tag iterator_category;
-Stl_iterator.h:iterator_category(const insert_iterator<_Container>&)
-Stl_iterator.h:  typedef bidirectional_iterator_tag iterator_category;
-Stl_iterator.h:iterator_category(const reverse_bidirectional_iterator<_BidirectionalIterator,
-Stl_iterator.h:  typedef typename iterator_traits<_Iterator>::iterator_category
-Stl_iterator.h:          iterator_category;
-Stl_iterator.h:  typedef random_access_iterator_tag iterator_category;
-Stl_iterator.h:iterator_category(const reverse_iterator<_RandomAccessIterator, _Tp,
-Stl_iterator.h:  typedef input_iterator_tag             iterator_category;
-Stl_iterator.h:  typedef output_iterator_tag            iterator_category;
-Stl_iterator.h:  typedef input_iterator_tag  iterator_category;
-Stl_iterator.h:iterator_category(const istream_iterator<_Tp, _Dist>&)
-Stl_iterator.h:  typedef output_iterator_tag iterator_category;
-Stl_iterator.h:iterator_category(const ostream_iterator<_Tp>&) {
-Stl_iterator_base.h:  typedef input_iterator_tag iterator_category;
-Stl_iterator_base.h:  typedef output_iterator_tag iterator_category;
-Stl_iterator_base.h:  typedef forward_iterator_tag iterator_category;
-Stl_iterator_base.h:  typedef bidirectional_iterator_tag iterator_category;
-Stl_iterator_base.h:  typedef random_access_iterator_tag iterator_category;
-Stl_iterator_base.h:  typedef _Category  iterator_category;
-Stl_iterator_base.h:  typedef typename _Iterator::iterator_category iterator_category;
-Stl_iterator_base.h:  typedef random_access_iterator_tag iterator_category;
-Stl_iterator_base.h:  typedef random_access_iterator_tag iterator_category;
-Stl_iterator_base.h:// The overloaded functions iterator_category, distance_type, and
-Stl_iterator_base.h:inline typename iterator_traits<_Iter>::iterator_category
-Stl_iterator_base.h:__iterator_category(const _Iter&)
-Stl_iterator_base.h:  typedef typename iterator_traits<_Iter>::iterator_category _Category;
-Stl_iterator_base.h:inline typename iterator_traits<_Iter>::iterator_category
-Stl_iterator_base.h:iterator_category(const _Iter& __i) { return __iterator_category(__i); }
-Stl_iterator_base.h:#define __ITERATOR_CATEGORY(__i) __iterator_category(__i)
-Stl_iterator_base.h:iterator_category(const input_iterator<_Tp, _Distance>&)
-Stl_iterator_base.h:inline output_iterator_tag iterator_category(const output_iterator&)
-Stl_iterator_base.h:iterator_category(const forward_iterator<_Tp, _Distance>&)
-Stl_iterator_base.h:iterator_category(const bidirectional_iterator<_Tp, _Distance>&)
-Stl_iterator_base.h:iterator_category(const random_access_iterator<_Tp, _Distance>&)
-Stl_iterator_base.h:inline random_access_iterator_tag iterator_category(const _Tp*)
-Stl_iterator_base.h:#define __ITERATOR_CATEGORY(__i) iterator_category(__i)
-Stl_iterator_base.h:  __distance(__first, __last, __n, iterator_category(__first));
-Stl_iterator_base.h:  typedef typename iterator_traits<_InputIterator>::iterator_category 
-Stl_iterator_base.h:  __advance(__i, __n, iterator_category(__i));
-Stl_list.h:  typedef bidirectional_iterator_tag iterator_category;
-Stl_list.h:iterator_category(const _List_iterator_base&)
-Stl_raw_storage_iter.h:  typedef output_iterator_tag iterator_category;
-Stl_raw_storage_iter.h:iterator_category(const raw_storage_iterator<_ForwardIterator, _Tp>&)
-Stl_slist.h:  typedef forward_iterator_tag iterator_category;
-Stl_slist.h:inline forward_iterator_tag iterator_category(const _Slist_iterator_base&) {
-Stl_slist.h:  typedef output_iterator_tag iterator_category;
-Stl_tree.h:  typedef bidirectional_iterator_tag iterator_category;
-Stl_tree.h:iterator_category(const _Rb_tree_base_iterator&) {
+---- pop_heap Matches (18 in 5 files) ----
+Algo.h:using __STD::pop_heap;
+Heap.h:using __STD::pop_heap;
+Stl_algo.h:      __pop_heap(__first, __middle, __i, _Tp(*__i),
+Stl_algo.h:      __pop_heap(__first, __middle, __i, _Tp(*__i), __comp,
+Stl_heap.h:// Heap-manipulation functions: push_heap, pop_heap, make_heap, sort_heap.
+Stl_heap.h:__pop_heap(_RandomAccessIterator __first, _RandomAccessIterator __last,
+Stl_heap.h:__pop_heap_aux(_RandomAccessIterator __first, _RandomAccessIterator __last,
+Stl_heap.h:  __pop_heap(__first, __last - 1, __last - 1, 
+Stl_heap.h:inline void pop_heap(_RandomAccessIterator __first, 
+Stl_heap.h:  __pop_heap_aux(__first, __last, __VALUE_TYPE(__first));
+Stl_heap.h:__pop_heap(_RandomAccessIterator __first, _RandomAccessIterator __last,
+Stl_heap.h:__pop_heap_aux(_RandomAccessIterator __first,
+Stl_heap.h:  __pop_heap(__first, __last - 1, __last - 1, _Tp(*(__last - 1)), __comp,
+Stl_heap.h:pop_heap(_RandomAccessIterator __first,
+Stl_heap.h:  __pop_heap_aux(__first, __last, __VALUE_TYPE(__first), __comp);
+Stl_heap.h:    pop_heap(__first, __last--);
+Stl_heap.h:    pop_heap(__first, __last--, __comp);
+Stl_queue.h:      pop_heap(c.begin(), c.end(), comp);
